@@ -130,19 +130,20 @@ class Document {
     private final LocalDate reg_date = LocalDate.of(2020, 1, 23);
     private final String reg_number;
 
-    public Document() {
-        this.description = new Description();
-        this.doc_id = "doc_id";
-        this.doc_status = "doc_status";
-        this.doc_type = DocType.LP_INTRODUCE_GOODS;
-        this.importRequest = true;
-        this.owner_inn = "owner_inn";
-        this.participant_inn = "participant_inn";
-        this.producer_inn = "producer_inn";
-        this.production_type = "production_type";
-        this.products = new ArrayList<>();
-        this.reg_number = "reg_number";
-        products.add(new Product());
+    public Document(Description description, String doc_id, String doc_status, DocType doc_type, boolean importRequest,
+                    String owner_inn, String participant_inn, String producer_inn, String production_type,
+                    List<Product> products, String reg_number) {
+        this.description = description;
+        this.doc_id = doc_id;
+        this.doc_status = doc_status;
+        this.doc_type = doc_type;
+        this.importRequest = importRequest;
+        this.owner_inn = owner_inn;
+        this.participant_inn = participant_inn;
+        this.producer_inn = producer_inn;
+        this.production_type = production_type;
+        this.products = products;
+        this.reg_number = reg_number;
     }
 
     public Description getDescription() {
@@ -205,8 +206,8 @@ enum DocType {
 class Description {
     private final String participantInn;
 
-    public Description() {
-        this.participantInn = "participantInn";
+    public Description(String participantInn) {
+        this.participantInn = participantInn;
     }
 
     public String getParticipantInn() {
@@ -225,14 +226,15 @@ class Product {
     private final String uit_code;
     private final String uitu_code;
 
-    public Product() {
-        this.certificate_document = "certificate_document";
-        this.certificate_document_number = "certificate_document_number";
-        this.owner_inn = "owner_inn";
-        this.producer_inn = "producer_inn";
-        this.tnved_code = "tnved_code";
-        this.uit_code = "uit_code";
-        this.uitu_code = "uitu_code";
+    public Product(String certificate_document, String certificate_document_number, String owner_inn,
+                   String producer_inn, String tnved_code, String uit_code, String uitu_code) {
+        this.certificate_document = certificate_document;
+        this.certificate_document_number = certificate_document_number;
+        this.owner_inn = owner_inn;
+        this.producer_inn = producer_inn;
+        this.tnved_code = tnved_code;
+        this.uit_code = uit_code;
+        this.uitu_code = uitu_code;
     }
 
     public String getCertificate_document() {
