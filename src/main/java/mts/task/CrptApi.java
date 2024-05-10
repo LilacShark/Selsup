@@ -144,6 +144,58 @@ class Document {
         this.reg_number = "reg_number";
         products.add(new Product());
     }
+
+    public Description getDescription() {
+        return description;
+    }
+
+    public String getDoc_id() {
+        return doc_id;
+    }
+
+    public String getDoc_status() {
+        return doc_status;
+    }
+
+    public DocType getDoc_type() {
+        return doc_type;
+    }
+
+    public boolean isImportRequest() {
+        return importRequest;
+    }
+
+    public String getOwner_inn() {
+        return owner_inn;
+    }
+
+    public String getParticipant_inn() {
+        return participant_inn;
+    }
+
+    public String getProducer_inn() {
+        return producer_inn;
+    }
+
+    public LocalDate getProduction_date() {
+        return production_date;
+    }
+
+    public String getProduction_type() {
+        return production_type;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public LocalDate getReg_date() {
+        return reg_date;
+    }
+
+    public String getReg_number() {
+        return reg_number;
+    }
 }
 
 enum DocType {
