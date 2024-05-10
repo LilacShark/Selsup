@@ -116,19 +116,19 @@ record RequestData(Document document, String signature) {
 
 
 class Document {
-    private Description description;
-    private String doc_id;
-    private String doc_status;
-    private DocType doc_type;
-    private boolean importRequest;
-    private String owner_inn;
-    private String participant_inn;
-    private String producer_inn;
-    private LocalDate production_date = LocalDate.of(2020, 1, 23);
-    private String production_type;
-    private List<Product> products;
-    private LocalDate reg_date = LocalDate.of(2020, 1, 23);
-    private String reg_number;
+    private final Description description;
+    private final String doc_id;
+    private final String doc_status;
+    private final DocType doc_type;
+    private final boolean importRequest;
+    private final String owner_inn;
+    private final String participant_inn;
+    private final String producer_inn;
+    private final LocalDate production_date = LocalDate.of(2020, 1, 23);
+    private final String production_type;
+    private final List<Product> products;
+    private final LocalDate reg_date = LocalDate.of(2020, 1, 23);
+    private final String reg_number;
 
     public Document() {
         this.description = new Description();
@@ -203,23 +203,27 @@ enum DocType {
 }
 
 class Description {
-    private String participantInn;
+    private final String participantInn;
 
     public Description() {
         this.participantInn = "participantInn";
     }
+
+    public String getParticipantInn() {
+        return participantInn;
+    }
 }
 
 class Product {
-    private String certificate_document;
-    private LocalDate certificate_document_date = LocalDate.of(2020, 1, 23);
-    private String certificate_document_number;
-    private String owner_inn;
-    private String producer_inn;
-    private LocalDate production_date = LocalDate.of(2020, 1, 23);
-    private String tnved_code;
-    private String uit_code;
-    private String uitu_code;
+    private final String certificate_document;
+    private final LocalDate certificate_document_date = LocalDate.of(2020, 1, 23);
+    private final String certificate_document_number;
+    private final String owner_inn;
+    private final String producer_inn;
+    private final LocalDate production_date = LocalDate.of(2020, 1, 23);
+    private final String tnved_code;
+    private final String uit_code;
+    private final String uitu_code;
 
     public Product() {
         this.certificate_document = "certificate_document";
@@ -231,13 +235,53 @@ class Product {
         this.uitu_code = "uitu_code";
     }
 
+    public String getCertificate_document() {
+        return certificate_document;
+    }
+
+    public LocalDate getCertificate_document_date() {
+        return certificate_document_date;
+    }
+
+    public String getCertificate_document_number() {
+        return certificate_document_number;
+    }
+
+    public String getOwner_inn() {
+        return owner_inn;
+    }
+
+    public String getProducer_inn() {
+        return producer_inn;
+    }
+
+    public LocalDate getProduction_date() {
+        return production_date;
+    }
+
+    public String getTnved_code() {
+        return tnved_code;
+    }
+
+    public String getUit_code() {
+        return uit_code;
+    }
+
+    public String getUitu_code() {
+        return uitu_code;
+    }
 }
 
 class SomeResponse {
 
-    private String state;
+    private final String state;
 
-    public LocalDate responseDate;
+    private final LocalDate responseDate;
+
+    public SomeResponse(String state, LocalDate responseDate) {
+        this.state = state;
+        this.responseDate = responseDate;
+    }
 
     @Override
     public String toString() {
@@ -245,6 +289,14 @@ class SomeResponse {
                 "state='" + state + '\'' +
                 ", responseDate=" + responseDate +
                 '}';
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public LocalDate getResponseDate() {
+        return responseDate;
     }
 }
 
